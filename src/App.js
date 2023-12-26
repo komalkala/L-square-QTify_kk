@@ -4,6 +4,7 @@ import Hero from './components/Hero/Hero';
 import { Outlet } from 'react-router-dom';
 import { fetchNewAlbum, fetchSongs, fetchTopAlbum } from './api/api';
 import { StyledEngineProvider } from '@mui/material';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 function App() {
   const [searchData, useSearchData] = useState();
   const [data, setData] = useState({});
@@ -23,12 +24,23 @@ useEffect(() => {
 const {topAlbums = [], newAlbums = [], songs = [] } = data;
 
   return (
-   <>
-        <StyledEngineProvider injectFirst>
-           <Navbar searchData={[...topAlbums, ...newAlbums, ]} />
-             <Outlet context={{data: {topAlbums, newAlbums, songs} }} />
-          </StyledEngineProvider>
-         </>
+    <HelmetProvider>
+      <StyledEngineProvider injectFirst>
+        <Helmet>
+          <title> Qtify </title>
+        </Helmet>
+        <Navbar searchData={[...topAlbums, ...newAlbums]} />
+        <Outlet context={{ data: { topAlbums, newAlbums, songs } }} />
+      </StyledEngineProvider>
+    </HelmetProvider>
+
+  //  <>
+  //       <StyledEngineProvider injectFirst>
+  //          <Navbar searchData={[...topAlbums, ...newAlbums, ]} />
+  //            <Outlet context={{data: {topAlbums, newAlbums, songs} }} />
+  //         </StyledEngineProvider>
+  //        </>
+
         );
       }
 

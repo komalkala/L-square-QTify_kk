@@ -4,6 +4,7 @@ import Search from '../Search/Search';
 import Button from '../Button/Button';
 import styles from "../Navbar/Navbar.module.css";
 import { Link } from 'react-router-dom';
+
 function Navbar({searchData}){
 return (
     <nav className={styles.navbar}>

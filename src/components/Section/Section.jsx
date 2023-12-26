@@ -31,7 +31,7 @@ return (
     <div>
         <div className={styles.header}>
             <h3>{title}</h3>
-            <h4 className={styles.toggleText} onClick={handleToggle}>{!carouselToggle ? "Collapse All": "Show All" }</h4>
+            {!showFilters && (<h4 className={styles.toggleText} onClick={handleToggle}>{!carouselToggle ? "Collapse All": "Show All" }</h4>)}
         </div>
         {showFilters && (<div className={styles.filterWrapper}>
             <Filters 
