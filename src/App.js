@@ -27,7 +27,7 @@ const {topAlbums = [], newAlbums = [], songs = [] } = data;
     <HelmetProvider>
       <StyledEngineProvider injectFirst>
         <Helmet>
-          <title> Qtify </title>
+          <title>Qtify</title>
         </Helmet>
         <Navbar searchData={[...topAlbums, ...newAlbums]} />
         <Outlet context={{ data: { topAlbums, newAlbums, songs } }} />
